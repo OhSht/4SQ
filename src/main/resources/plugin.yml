@@ -2,3 +2,12 @@ name: 4SQ
 version: '${project.version}'
 main: dev.bar.sq.Main
 api-version: 1.18
+commands:
+  save:
+    description: Saves your stats manually
+    usage: /save
+    permission:
+  team:
+    description: Sets colors
+    usage: /team <color>
+    permission:
