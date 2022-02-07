@@ -1,0 +1,4 @@
+name: 4SQ
+version: '${project.version}'
+main: dev.bar.sq.Main
+api-version: 1.18
