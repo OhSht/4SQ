@@ -90,7 +90,7 @@ public class ListenerC implements Listener {
             SPAWN_meta.setLore(SPAWN_lore);//optional lore
 
 
-            //sets the itemmeta in
+            //sets the itemmeta i
             RED.setItemMeta(RED_meta);
             BLUE.setItemMeta(BLUE_meta);
             GOLD.setItemMeta(GOLD_meta);
