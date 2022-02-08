@@ -8,6 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Commands implements CommandExecutor {
@@ -35,39 +36,49 @@ public class Commands implements CommandExecutor {
         */
         if(command.getName().equalsIgnoreCase("team")) {
 
+           String[] Colors = {"red","blue","gold","purple","spectator"};
+
             String arg1 = args[0].toString(); //this is convoluted for a reason hoe
             p.sendMessage(arg1);
             if(arg1.equalsIgnoreCase("red")){ //fixed the problem by changing from ==
                 Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"RED TEAM SPAWN UPDATED");
-                plugin.getConfig().set("Locations"+".RED_TEAM"+".X",p.getLocation().getX());
-                plugin.getConfig().set("Locations"+".RED_TEAM"+".Y",p.getLocation().getY());
-                plugin.getConfig().set("Locations"+".RED_TEAM"+".Z",p.getLocation().getZ());
-                plugin.getConfig().set("Locations"+".RED_TEAM"+".Pitch",p.getLocation().getPitch());
-                plugin.getConfig().set("Locations"+".RED_TEAM"+".Yaw",p.getLocation().getYaw());
+                plugin.getConfig().set(Colors[0],p.getLocation());
+                plugin.saveConfig();
+                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+plugin.getConfig().get(Colors[0]));
+
+
             }
-            else if(arg1.equalsIgnoreCase("")){ //fixed the problem by changing from ==
+            else if(arg1.equalsIgnoreCase("blue")){ //fixed the problem by changing from ==
                 Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"RED TEAM SPAWN UPDATED");
-                plugin.getConfig().set("Locations"+"._TEAM"+".X",p.getLocation().getX());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Y",p.getLocation().getY());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Z",p.getLocation().getZ());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Pitch",p.getLocation().getPitch());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Yaw",p.getLocation().getYaw());
+                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".X",p.getLocation().getX());
+                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Y",p.getLocation().getY());
+                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Z",p.getLocation().getZ());
+                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Pitch",p.getLocation().getPitch());
+                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Yaw",p.getLocation().getYaw());
             }
-            else if(arg1.equalsIgnoreCase("")){ //fixed the problem by changing from ==
-                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"RED TEAM SPAWN UPDATED");
-                plugin.getConfig().set("Locations"+"._TEAM"+".X",p.getLocation().getX());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Y",p.getLocation().getY());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Z",p.getLocation().getZ());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Pitch",p.getLocation().getPitch());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Yaw",p.getLocation().getYaw());
+            else if(arg1.equalsIgnoreCase("gold")){ //fixed the problem by changing from ==
+                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"GOLD TEAM SPAWN UPDATED");
+                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".X",p.getLocation().getX());
+                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Y",p.getLocation().getY());
+                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Z",p.getLocation().getZ());
+                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Pitch",p.getLocation().getPitch());
+                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Yaw",p.getLocation().getYaw());
             }
-            else if(arg1.equalsIgnoreCase("")){ //fixed the problem by changing from ==
-                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"RED TEAM SPAWN UPDATED");
-                plugin.getConfig().set("Locations"+"._TEAM"+".X",p.getLocation().getX());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Y",p.getLocation().getY());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Z",p.getLocation().getZ());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Pitch",p.getLocation().getPitch());
-                plugin.getConfig().set("Locations"+"._TEAM"+".Yaw",p.getLocation().getYaw());
+            else if(arg1.equalsIgnoreCase("purple")){ //fixed the problem by changing from ==
+                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"PURPLE TEAM SPAWN UPDATED");
+                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".X",p.getLocation().getX());
+                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".Y",p.getLocation().getY());
+                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".Z",p.getLocation().getZ());
+                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".Pitch",p.getLocation().getPitch());
+                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".Yaw",p.getLocation().getYaw());
+            }
+            else if(arg1.equalsIgnoreCase("spec")){ //fixed the problem by changing from ==
+                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"PURPLE TEAM SPAWN UPDATED");
+                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".X",p.getLocation().getX());
+                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".Y",p.getLocation().getY());
+                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".Z",p.getLocation().getZ());
+                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".Pitch",p.getLocation().getPitch());
+                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".Yaw",p.getLocation().getYaw());
             }
 
         }

@@ -1,5 +1,7 @@
 package dev.bar.sq;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -23,7 +25,15 @@ public class MenuHandler implements Listener {
             p.sendMessage("GUI ACTIVATED");
             if(e.getCurrentItem().getType().equals(Material.RED_BANNER)){
                 p.sendMessage("Joined Red team.");
+                Location loc = new Location(Bukkit.getWorld("world"),
+                        plugin.getConfig().getInt("red"+".x"),
+                        plugin.getConfig().getInt("red"+".y"),
+                        plugin.getConfig().getInt("red"+".z"),
+                        plugin.getConfig().getInt("red"+".pitch"),
+                        plugin.getConfig().getInt("red"+".yaw"));
+                p.teleport(loc);
             }
+
         }
 
 
