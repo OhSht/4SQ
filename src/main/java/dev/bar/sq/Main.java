@@ -15,6 +15,8 @@ public final class Main extends JavaPlugin {
         final FileConfiguration config = this.getConfig();
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new ListenerC(this), this);
+        pm.registerEvents(new MenuHandler(this), this);
+
     }
 
     @Override

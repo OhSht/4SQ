@@ -44,12 +44,12 @@ public class Commands implements CommandExecutor {
                 Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"RED TEAM SPAWN UPDATED");
                 plugin.getConfig().set(Colors[0],p.getLocation());
                 plugin.saveConfig();
-                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+plugin.getConfig().get(Colors[0]));
+                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+plugin.getConfig().get(Colors[0]+"x"));
 
 
             }
             else if(arg1.equalsIgnoreCase("blue")){ //fixed the problem by changing from ==
-                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"RED TEAM SPAWN UPDATED");
+                Bukkit.broadcastMessage(ChatColor.BLUE+""+ChatColor.BOLD+"BLUE TEAM SPAWN UPDATED");
                 plugin.getConfig().set("Locations"+".BLUE_TEAM"+".X",p.getLocation().getX());
                 plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Y",p.getLocation().getY());
                 plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Z",p.getLocation().getZ());
@@ -57,7 +57,7 @@ public class Commands implements CommandExecutor {
                 plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Yaw",p.getLocation().getYaw());
             }
             else if(arg1.equalsIgnoreCase("gold")){ //fixed the problem by changing from ==
-                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"GOLD TEAM SPAWN UPDATED");
+                Bukkit.broadcastMessage(ChatColor.GOLD+""+ChatColor.BOLD+"GOLD TEAM SPAWN UPDATED");
                 plugin.getConfig().set("Locations"+".GOLD_TEAM"+".X",p.getLocation().getX());
                 plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Y",p.getLocation().getY());
                 plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Z",p.getLocation().getZ());
