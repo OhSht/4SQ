@@ -73,6 +73,7 @@ public class ListenerC implements Listener {
 
 
 
+
             //setting all of the metas or descriptions of the items
             ItemMeta RED_meta = RED.getItemMeta();
             ItemMeta BLUE_meta = BLUE.getItemMeta();

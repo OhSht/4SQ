@@ -26,6 +26,7 @@ public class MenuHandler implements Listener {
         Player p = (Player) e.getWhoClicked();
         if(e.getView().getTitle().equalsIgnoreCase(ChatColor.RED+" "+ChatColor.BOLD+"CHOOSE YOUR TEAM")){
             e.setCancelled(true);
+            //cancells the movement n stuff
             p.sendMessage("GUI ACTIVATED");
             if(e.getCurrentItem().getType().equals(Material.RED_BANNER)){
                 p.sendMessage("Joined Red team.");

@@ -38,6 +38,7 @@ public class Commands implements CommandExecutor {
 
            String[] Colors = {"red","blue","gold","purple","spectator"};
 
+
             String arg1 = args[0].toString(); //this is convoluted for a reason hoe
             p.sendMessage(arg1);
             if(arg1.equalsIgnoreCase("red")){ //fixed the problem by changing from ==
