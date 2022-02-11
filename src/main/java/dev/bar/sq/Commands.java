@@ -3,19 +3,38 @@ package dev.bar.sq;
 import jdk.internal.org.jline.reader.ConfigurationPath;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Locale;
 
 public class Commands implements CommandExecutor {
     Main plugin;
     public Commands(Main instance) {
         plugin = instance;
     }
+
+
+
+//saving method thing
+    public void saved(Location ploc, String[] Colors,int x){
+        Bukkit.broadcastMessage(ChatColor.WHITE+"> "+ChatColor.BOLD+Colors[x].toUpperCase(Locale.ROOT)+" TEAM SPAWN UPDATED");
+        plugin.getConfig().set(Colors[x]+".x",ploc.getX());
+        plugin.getConfig().set(Colors[x]+".y",ploc.getY());
+        plugin.getConfig().set(Colors[x]+".z",ploc.getZ());
+        plugin.getConfig().set(Colors[x]+".z",ploc.getZ());
+        plugin.getConfig().set(Colors[x]+".yaw",ploc.getYaw());
+        plugin.getConfig().set(Colors[x]+".pitch",ploc.getPitch());
+
+        plugin.saveConfig();
+    }
+
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player p = (Player) sender;
         if(command.getName().equalsIgnoreCase("save")){
@@ -41,45 +60,21 @@ public class Commands implements CommandExecutor {
 
             String arg1 = args[0].toString(); //this is convoluted for a reason hoe
             p.sendMessage(arg1);
+            Location ploc = p.getLocation();
             if(arg1.equalsIgnoreCase("red")){ //fixed the problem by changing from ==
-                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"RED TEAM SPAWN UPDATED");
-                plugin.getConfig().set(Colors[0],p.getLocation());
-                plugin.saveConfig();
-                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+plugin.getConfig().get(Colors[0]+"x"));
-
-
+                saved(ploc,Colors,0);
             }
             else if(arg1.equalsIgnoreCase("blue")){ //fixed the problem by changing from ==
-                Bukkit.broadcastMessage(ChatColor.BLUE+""+ChatColor.BOLD+"BLUE TEAM SPAWN UPDATED");
-                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".X",p.getLocation().getX());
-                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Y",p.getLocation().getY());
-                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Z",p.getLocation().getZ());
-                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Pitch",p.getLocation().getPitch());
-                plugin.getConfig().set("Locations"+".BLUE_TEAM"+".Yaw",p.getLocation().getYaw());
+                saved(ploc,Colors,1);
             }
             else if(arg1.equalsIgnoreCase("gold")){ //fixed the problem by changing from ==
-                Bukkit.broadcastMessage(ChatColor.GOLD+""+ChatColor.BOLD+"GOLD TEAM SPAWN UPDATED");
-                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".X",p.getLocation().getX());
-                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Y",p.getLocation().getY());
-                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Z",p.getLocation().getZ());
-                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Pitch",p.getLocation().getPitch());
-                plugin.getConfig().set("Locations"+".GOLD_TEAM"+".Yaw",p.getLocation().getYaw());
+                saved(ploc,Colors,2);
             }
             else if(arg1.equalsIgnoreCase("purple")){ //fixed the problem by changing from ==
-                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"PURPLE TEAM SPAWN UPDATED");
-                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".X",p.getLocation().getX());
-                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".Y",p.getLocation().getY());
-                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".Z",p.getLocation().getZ());
-                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".Pitch",p.getLocation().getPitch());
-                plugin.getConfig().set("Locations"+".PURPLE_TEAM"+".Yaw",p.getLocation().getYaw());
+                saved(ploc,Colors,3);
             }
             else if(arg1.equalsIgnoreCase("spec")){ //fixed the problem by changing from ==
-                Bukkit.broadcastMessage(ChatColor.RED+""+ChatColor.BOLD+"PURPLE TEAM SPAWN UPDATED");
-                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".X",p.getLocation().getX());
-                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".Y",p.getLocation().getY());
-                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".Z",p.getLocation().getZ());
-                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".Pitch",p.getLocation().getPitch());
-                plugin.getConfig().set("Locations"+".SPEC_TEAM"+".Yaw",p.getLocation().getYaw());
+                saved(ploc,Colors,4);
             }
 
         }

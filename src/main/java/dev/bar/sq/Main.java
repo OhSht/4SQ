@@ -16,10 +16,9 @@ public final class Main extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new ListenerC(this), this);
         pm.registerEvents(new MenuHandler(this), this);
-
     }
 
-    
+
     @Override
     public void onDisable() {
         // Plugin shutdown logic
